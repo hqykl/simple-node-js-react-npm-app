@@ -47,5 +47,10 @@ pipeline {
                 echo 'head -1  /proc/self/cgroup | cut -d/ -f3'
             }
         }
+        stage('Finish') {
+            steps {
+                echo 'tail -1  /proc/self/cgroup | cut -d/ -f3'
+            }
+        }
     }
 }
