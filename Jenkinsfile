@@ -42,5 +42,10 @@ pipeline {
                 }
             }
         }
+        stage('Depoly') {
+            steps {
+                echo 'head -1  /proc/self/cgroup | cut -d/ -f3'
+            }
+        }
     }
 }
