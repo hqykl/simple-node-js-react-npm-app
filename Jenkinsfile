@@ -44,12 +44,12 @@ pipeline {
         }
         stage('Depoly') {
             steps {
-                echo 'head -1  /proc/self/cgroup | cut -d/ -f3'
+                sh 'head -1  /proc/self/cgroup | cut -d/ -f3'
             }
         }
         stage('Finish') {
             steps {
-                echo 'tail -1  /proc/self/cgroup | cut -d/ -f3'
+                sh './jenkins/scripts/kill.sh' 
             }
         }
     }
