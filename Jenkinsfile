@@ -37,8 +37,8 @@ pipeline {
         stage('Build') {
             steps {
                 nodejs('node-v17.9.0') {
-                    sh 'yarn install'
-                    sh 'yarn build'
+                    sh 'npm install'
+                    sh 'npm run build'
                 }
             }
         }
