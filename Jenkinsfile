@@ -36,7 +36,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                nodejs('node-v17.9.0') {
+                nodejs('node-v16') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
