@@ -39,6 +39,8 @@ pipeline {
                 nodejs('node-v16') {
                     sh 'npm install'
                     sh 'npm run build'
+                    sh 'ls'
+                    sh 'pwd'
                 }
             }
         }
