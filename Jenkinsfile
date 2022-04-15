@@ -44,12 +44,7 @@ pipeline {
         }
         stage('Depoly') {
             steps {
-                sh 'head -1  /proc/self/cgroup | cut -d/ -f3'
-            }
-        }
-        stage('Finish') {
-            steps {
-                sh './jenkins/scripts/kill.sh' 
+              sshPublisher(publishers: [sshPublisherDesc(configName: 'tx-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/share/nginx/html', remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'dist/**')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
